@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Rock Paper Scissors Game</h1>
+
+        <div id="initial">
+            <button onclick="createGame()">Create Game</button>
+            <div class="or-text">OR</div>
+            <input type="text" id="roomUniqueId" placeholder="Enter Room ID" />
+            <button onclick="joinGame()">Join Game</button>
+        </div>
+        <div id="gamePlay">
+            <div id="waitingArea" class="h4">
+                <!-- Waiting message will appear here -->
+            </div>
+            <div id="gameArea" class="row" style="display: none;">
+                <div class="col-md-6 player-area">
+                    <h3>You:</h3>
+                    <div id="player1Choice" class="choices">
+                        <button class="choice-button rock" onclick="sendChoice('Rock')"></button>
+                        <button class="choice-button paper" onclick="sendChoice('Paper')"></button>
+                        <button class="choice-button scissor" onclick="sendChoice('Scissor')"></button>
+                    </div>
+                </div>
+                <div class="col-md-6 player-area">
+                    <h3>Opponent:</h3>
+                    <div id="player2Choice" class="choices">
+                        <p id="opponentState">Waiting for Opponent</p>
+                    </div>
+                </div>
+            </div>
+            <hr id="resultDivider" style="display: none;" />
+            <div id="winnerArea" class="display-4">
+                
+                <!-- Winner message will appear here -->
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</body>
+</html>
